@@ -101,3 +101,43 @@ void Time::printTwentyFourHourFormat() {
 	cout << hours << ":" << minutes << ":" << seconds << endl;
 
 }
+bool Time::operator<(const Time& t) const
+{
+	if (hours < t.hours)
+		return true;
+
+	if (hours == t.hours && minutes < t.minutes)
+		return true;
+
+	if (hours == t.hours && minutes == t.minutes && seconds < t.seconds)
+		return true;
+
+	return false;
+}
+
+bool Time::operator>(const Time& t) const
+{
+	return t < *this;
+}
+
+bool Time::operator<=(const Time& t) const
+{
+	return !(*this > t);
+}
+
+bool Time::operator>=(const Time& t) const
+{
+	return !(*this < t);
+}
+
+bool Time::operator==(const Time& t) const
+{
+	return hours == t.hours &&
+		minutes == t.minutes &&
+		seconds == t.seconds;
+}
+
+bool Time::operator!=(const Time& t) const
+{
+	return !(*this == t);
+}
