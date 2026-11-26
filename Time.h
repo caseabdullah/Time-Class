@@ -27,6 +27,13 @@ public:
 
 	void printTwelveHourFormat();
 	void printTwentyFourHourFormat();
+
+	bool operator<(const Time& t) const;
+	bool operator>(const Time& t) const;
+	bool operator<=(const Time& t) const;
+	bool operator>=(const Time& t) const;
+	bool operator==(const Time& t) const;
+	bool operator!=(const Time& t) const;
 };
 
 #endif
